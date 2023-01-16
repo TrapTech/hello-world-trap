@@ -3,6 +3,7 @@ name: Build
 on:
   push:
     branches: [ "main" ]
+    tags: [ "release/*" ]
   pull_request:
     branches: [ "main" ]
 
@@ -19,5 +20,11 @@ jobs:
     - name: Upload result
       uses: actions/upload-artifact@v3
       with:
-        name: hello-world-trap
+        name: hello-world-trap-build
         path: hello-world-trap.zip
+
+    - name: Create release
+      uses: softprops/action-gh-release@v0.1.15
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: hello-world-trap.zip
