@@ -1,0 +1,48 @@
+{% from 'stepper.html' import stepper %}
+{% extends '_layout.html' %}
+{% block title %}Incidents{% endblock %}
+{% block body %}
+{{ stepper(2) }}
+<h1>Incidents</h1>
+<p>
+    Of course, a good trap will not only inform you about page views.
+    TrapInit notifications (or <i>incidents</i>) can have multiple severities,
+    depending on actions taken inside the trap.
+</p>
+<br />
+<p>
+    The below form simulates an attacker performing a SQL injection attack.
+    Try entering something (or leaving the predefined values) and clicking submit.
+</p>
+{% if form_state == 'start' %}
+<form method="post">
+    <div>
+        <label for="fname">Name</label>
+        <input id="fname" name="fname" value="Robert"></input>
+    </div>
+    <div>
+        <label for="sname">Surname</label>
+        <input id="sname" name="sname" value="'); DROP TABLE Students;--"></input>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+{% endif %}
+{% if form_state == 'end' %}
+<form>
+    <p>🤔 I hope what you entered something that makes sense, because there isn't really code to check it...</p>
+    <p>
+        You should now see a new high-severity incident, notifying you that an attacker tried to perform
+        a SQL injection.
+    </p>
+    <p>
+        Also take note that the incident includes <i>custom data</i>
+        allowing you to see the data you have submitted.
+        You can see it by clicking the received incident in TrapInit, and then clicking the "{ }" button in the info pane.
+    </p>
+</form>
+<br />
+<p>
+    👉 Take a look at <a href="{{ url_for('step_3_bait') }}">baits</a> next.
+</p>
+{% endif %}
+{% endblock %}

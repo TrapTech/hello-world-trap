@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the Docker image
+      run: ./build.sh
+
+    - name: Upload result
+      uses: actions/upload-artifact@v3
+      with:
+        name: hello-world-trap
+        path: hello-world-trap.zip

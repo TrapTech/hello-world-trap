@@ -1,0 +1,22 @@
+{% extends '_layout.html' %}
+{% block title %}Hello there! - Notification{% endblock %}
+{% block body %}
+<h1>Got you! 👀</h1>
+<p>
+    When entering this page, the trap contacted TrapInit
+    and sent a notification about somebody entering.
+</p>
+<p>
+    You should be able to see it in the <i>Incidents</i> tab.
+    Take note that you can see some additional information -
+    including the IP address of the device that opened the page.
+</p>
+<p>
+    If you didn't receive an incident, check the trap and application logs for any potential errors.
+</p>
+<br />
+<p>
+If you're finished, you can close this tab and <a href="{{ url_for('step_1_hello_world') }}">return to the main page</a>.
+</p>
+{% endblock %}
+

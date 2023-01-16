@@ -1,0 +1,66 @@
+{% from 'stepper.html' import stepper %}
+{% extends '_layout.html' %}
+{% block title %}Bait{% endblock %}
+{% block body %}
+{{ stepper(3) }}
+<h1>Baits</h1>
+<p>
+    A trap isn't much use if the attacker can't find it.
+    To make sure he gets caught, <i>baits</i> can be generated in TrapInit and
+    then scattered around your infrastructure.
+</p>
+<p>
+    When a bad actor sniffing around your network finds such a bait
+    - like a configation file filled with credentials and IPs - he
+    will most likely use them to continue prying into your systems.
+    <br />
+    The credentials in the bait hovewer will lead him straight into the trap,
+    triggering alerts in TrapInit, as demonstrated in the previous steps.
+</p>
+<br />
+<p>
+    This trap allows you to generate a simple bait, containing a link to this page
+    and a special password. Try generating the bait. For help, consult the <a href="https://docs.traptech.pl" target="_blank">documentation</a>.
+    <br />
+    After running the bait script, a new file <i>super-secret-info.txt</i> can be found on your desktop.
+    Input the password from that file into the form below.
+</p>
+{% if form_state == 'start' or form_state == 'invalid' %}
+<form method="post">
+    <div>🤭 SUPER SECRET DATA SECTION 🤭</div>
+    <div>
+        <label for="pass">Password</label>
+        <input id="pass" name="pass" type="password"></input>
+    </div>
+    <button type="submit">Submit</button>
+    {% if form_state == 'invalid' %}
+    <p style="color: #d32f2f">Invalid password! Make sure to use the password from the generated bait.</p>
+    {% endif %}
+</form>
+{% endif %}
+{% if form_state == 'open' %}
+<br />
+<form>
+<p>
+    🕸️🕸️🕸️ No secret data here. What did you except? :) 🕸️🕸️🕸️ 
+</p>
+<p>
+    Check the incidents - you should now see a new one, notifying you
+    that an attacker has entered the <i>secret data section</i>.
+</p>
+<p>
+    Take note that in the incident, you can see a special value identifying
+    the bait that was used. Since a bait is uniquely generated per-machine, this
+    identifies from where the attacker took the bait, allowing you to retrace their
+    steps.
+    In your case, it's the hostname of the machine where you generated the test bait.
+</p>
+</form>
+<h1>🎉</h1>
+<p>
+    This is the end of this demonstration trap. Hope you had fun :)
+    <br />
+    Consult the <a href="https://docs.traptech.pl/" target="_blank">documentation</a>
+    to learn more about TrapInit.</p>
+{% endif %}
+{% endblock %}

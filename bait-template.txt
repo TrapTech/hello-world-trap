@@ -1,0 +1,3 @@
+Super secret config file. Do not touch!
+app: http://${IP}:${PORT}/3-bait
+password for super secret data section: ${PASSWORD}

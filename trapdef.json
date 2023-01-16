@@ -1,0 +1,23 @@
+{
+    "def": "1.0",
+    "name": "Hello world!",
+    "identifier": "hello-world",
+    "private": true,
+    "description": "A trap showcasing basic TrapInit functionalities",
+    "authors": ["TrapTech"],
+    "version": "1.0.0",
+    "supportedRunners": ["Docker"],
+    "dockerRunnerDefinition": {
+        "dockerComposePath": "./docker-compose.yml",
+        "imagesPath": "./images.tar"
+    },
+    "baits": [
+        {
+            "name": "Example bait",
+            "description": "Generates a demonstrative bait, to be used inside this trap's bait demo page",
+            "type": "PowershellTemplate",
+            "templateFile": "./bait-template.txt",
+            "targetPathTemplate": "${USERDIR}\\Desktop\\super-secret-info.txt"
+        }
+    ]
+}

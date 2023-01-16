@@ -1,0 +1,206 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+*:not(a) {
+    color: var(--fg-color);
+}
+
+html {
+    font-size: 16px;
+
+    --fg-color: rgba(0, 0, 0, 0.87);
+    --fg-light-color: rgba(0, 0, 0, 0.54);
+    --bg-color: rgb(250, 250, 250);
+    --accent-color: rgb(63, 81, 181);
+}
+
+body {
+    margin: 40px auto;
+    max-width: 650px;
+    padding: 0 10px;
+
+    line-height: 1.6;
+    font-size: 1.125rem;
+
+    background-color: var(--bg-color);
+}
+
+h1 {
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 400;
+}
+
+#logo {
+    margin: 24px auto;
+    display: block;
+}
+
+#stepper {
+    margin: 16px 8px;
+    padding: 0;
+    list-style: none;
+}
+
+#stepper > li {
+    width: 100%;
+}
+
+#stepper > li:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+#stepper > li > * {
+    display: block;
+    margin: 0;
+    padding: 2px 8px;
+    width: 100%;
+
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 500;
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
+}
+
+#stepper > li.active > * {
+    color: var(--accent-color);
+    background-color: rgba(63, 81, 181, 0.18);
+}
+
+#stepper > li:not(.active):hover > * {
+    background-color: rgba(0, 0, 0, 0.14)
+}
+
+#stepper > li:not(.active) > * {
+    color: var(--fg-light-color);
+}
+
+@media(min-width: 1200px) {
+    #stepper {
+        position: absolute;
+        left: 0;
+        top: 15%;
+        transform: translate(0, -50%);
+        width: calc((100vw - 650px) / 2 - 32px);
+        max-width: 30ch;
+    }
+}
+
+button, a.button {
+    border: 0;
+    margin: 0;
+
+    display: block;
+
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+
+    min-width: 64px;
+    padding: 6px 16px;
+    border-radius: 4px;
+
+    color: rgb(255, 255, 255);
+    background-color: var(--accent-color);
+
+    box-shadow:
+        rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+        rgb(0 0 0 / 14%) 0px 2px 2px 0px,
+        rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+
+    transition:
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+:is(button, a.button):hover {
+    cursor: pointer;
+    background-color: rgb(0, 41, 132);
+    box-shadow:
+        rgb(0 0 0 / 20%) 0px 2px 4px -1px,
+        rgb(0 0 0 / 14%) 0px 4px 5px 0px,
+        rgb(0 0 0 / 12%) 0px 1px 10px 0px;
+}
+
+:is(button, a.button):active {
+    box-shadow:
+        rgb(0 0 0 / 20%) 0px 5px 5px -3px,
+        rgb(0 0 0 / 14%) 0px 8px 10px 1px,
+        rgb(0 0 0 / 12%) 0px 3px 14px 2px;
+}
+
+form {
+    border: 1px solid var(--fg-light-color);
+    border-radius: 4px;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+}
+
+form > button {
+    margin-top: 8px !important;
+}
+
+form > div {
+    position: relative;
+}
+
+form > div > label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(14px, -9px) scale(0.75);
+    transform-origin: left top;
+
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    padding: 0 4px;
+    z-index: 1;
+    color: var(--fg-light-color);
+    background-color: var(--bg-color);
+}
+
+form > div:focus-within > label {
+    color: var(--accent-color);
+}
+
+form > div > input {
+    width: 100%;
+    margin: 0;
+    padding: 17px 15px;
+
+    border: 1px solid var(--fg-light-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background: none;
+}
+
+form > div > input:hover {
+    border-color: var(--fg-color);
+}
+
+form > div > :is(input:focus, input:focus-visible) {
+    border-color: var(--accent-color);
+    border-width: 2px;
+    padding: 16px 14px;
+    outline: none
+}

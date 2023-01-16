@@ -1,0 +1,34 @@
+{% from 'stepper.html' import stepper %}
+{% extends '_layout.html' %}
+{% block title %}Hello there!{% endblock %}
+{% block body %}
+{{ stepper(1) }}
+<h1>👋 Hello, world!</h1>
+<p>
+    If you see this text, you have successfully built and ran the example TrapInit
+    trap. Good job! 😀
+</p>
+<p>
+    This trap functions as an example of what a TrapInit trap is capable of doing,
+    as well as a testing ground that everything is working correctly.
+</p>
+<p>
+    You should see a list of steps at the left side of the screen or at the top.
+    Each one allows you to discover a functionality of TrapInit traps.</p>
+<br />
+<p>
+    The basic function of a trap is to alert you if someone enters it.
+    <br />
+    Since such a trap is not a resource that a normal user should use,
+    this is a good first signal that someone is snooping around your infrastructure
+    unauthorized.
+</p>
+<p>
+    Click the button below to simulate an attacker visiting your trap.
+</p>
+<a class="button" href="{{ url_for('step_1_notify') }}" target="_blank">💣💣💣 I'm an attacker visiting a trap 💣💣💣</a>
+<br />
+<p>
+    👉 Take a look at <a href="{{ url_for('step_2_incident') }}">incidents</a> next.
+</p>
+{% endblock %}

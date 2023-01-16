@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+Dockerfile
+README.md
+trapinit-hello-world.zip
+images.tar
+build.sh

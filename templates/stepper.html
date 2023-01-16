@@ -1,0 +1,18 @@
+{% macro stepper_item(text, href, is_active) %}
+    {% if is_active %}
+    <li class="active">
+        <b>{{ text }}</b>
+    </li>
+    {% else %}
+    <li>
+        <a href="{{ href }}">{{ text }}</a>
+    </li>
+    {% endif %}
+{% endmacro %}
+{% macro stepper(step) %}
+<ol id="stepper">
+    {{ stepper_item("1. Hello world!", url_for('step_1_hello_world'), step == 1) }}
+    {{ stepper_item("2. Incidents",    url_for('step_2_incident'), step == 2) }}
+    {{ stepper_item("3. Baits",        url_for('step_3_bait'), step == 3) }}
+</ol>
+{% endmacro %}
