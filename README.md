@@ -6,6 +6,9 @@ You can run it using the TrapInit application (downloadable [here](https://downl
 
 You can download the actual trap definition from the [releases](https://github.com/TrapTech/hello-world-trap/releases) or from [downloads.traptech.pl](https://downloads.traptech.pl).
 
+If you run into any problems with this trap, you can always make an issue in this repository or
+contact us for support at [support@traptech.pl](mailto:support@traptech.pl).
+
 ## Building
 
 To build this trap locally, you need the following installed (on a Linux system or WSL2):
