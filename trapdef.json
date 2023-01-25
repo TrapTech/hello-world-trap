@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/TrapTech/trapdef-schema/main/TrapDef.schema.json",
     "def": "1.0",
     "name": "Hello world!",
     "identifier": "hello-world",
