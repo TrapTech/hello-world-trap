@@ -72,20 +72,20 @@ def step_3_bait():
         try:
             encode = base64.b64encode(bytes(v, "utf8")).decode("utf8")         
             p = subprocess.run( [ 'TrapCLI', 'validate', '-v', encode])
-            print( 'exit status code:', p.returncode )
             return p.returncode == 0
         except:
             return False   
 
     password = request.form.get("pass")
     if validate_bait(password):
+        encodePassword = base64.b64encode(bytes(password, "utf8")).decode("utf8")
         run_trap_cli([
             "send-incident",
             "-n", "Step 3 - Bait used to enter",
             "-d", "A simulated attacker has used a bait to enter the trap",
             "-s", "Attempt",
             "-i", f"{request.remote_addr}",
-            "-b", f"{password}"
+            "-b", f"{encodePassword}"
         ])
         return render('open')
 
