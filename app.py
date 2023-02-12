@@ -69,13 +69,13 @@ def step_3_bait():
         return render('start')
 
     def validate_bait(v):
-        # A valid bait value is one that is a proper base64 string, and which starts
-        # with @dv: when decoded.
         try:
-            decoded = base64.b64decode(v)
-            return decoded.startswith(b'@dv:')
+            encode = base64.b64encode(bytes(v, "utf8")).decode("utf8")         
+            p = subprocess.run( [ 'TrapCLI', 'validate', '-v', encode])
+            print( 'exit status code:', p.returncode )
+            return p.returncode == 0
         except:
-            return False
+            return False   
 
     password = request.form.get("pass")
     if validate_bait(password):
