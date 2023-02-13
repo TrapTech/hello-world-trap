@@ -6,7 +6,7 @@
     "private": true,
     "description": "A trap showcasing basic TrapInit functionalities",
     "authors": ["TrapTech"],
-    "version": "1.0.2",
+    "version": "1.1.0",
     "supportedRunners": ["Docker"],
     "dockerRunnerDefinition": {
         "dockerComposePath": "./docker-compose.yml",
@@ -18,7 +18,7 @@
             "description": "Generates a demonstrative bait, to be used inside this trap's bait demo page",
             "type": "PowershellTemplate",
             "templateFile": "./bait-template.txt",
-            "targetPathTemplate": "${USERDIR}\\Desktop\\super-secret-info.txt"
+            "targetPathTemplate": "${env:USERPROFILE}\\Desktop\\super-secret-info.txt"
         }
     ]
 }
