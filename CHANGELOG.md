@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+Adjustment after TrapCLI changes
+
 ## 1.0.2
 
 Fix docker-compose.yml error
