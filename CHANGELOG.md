@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+Re-release to fixup error during previous publish.
+
 ## 1.1.0
 
 Adjustment after TrapCLI changes
