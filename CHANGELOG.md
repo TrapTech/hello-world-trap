@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+Set default port. 
+
 ## 1.1.1
 
 Re-release to fixup error during previous publish.

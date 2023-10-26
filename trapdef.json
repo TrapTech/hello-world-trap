@@ -12,6 +12,13 @@
         "dockerComposePath": "./docker-compose.yml",
         "imagesPath": "./images.tar"
     },
+	"ports": {
+		"default": {
+			"type": "web",
+			"name": "Port",
+			"defaultValue": 8080
+		}
+	},
     "baits": [
         {
             "name": "Example bait",
