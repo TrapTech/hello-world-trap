@@ -1,7 +1,7 @@
 FROM curlimages/curl as trapcli
 
 # Download and install TrapCLI
-ARG TRAPCLI_VERSION=1.3.1
+ARG TRAPCLI_VERSION=2.0.1
 RUN curl -f https://downloads.traptech.pl/data/TrapCLI-musl-v${TRAPCLI_VERSION} -o /home/curl_user/TrapCLI \
     && chmod +x /home/curl_user/TrapCLI
 

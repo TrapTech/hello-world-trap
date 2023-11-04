@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 import subprocess
 import base64
+import json
 
 def run_trap_cli(args):
     try:
@@ -48,13 +49,19 @@ def step_2_incident():
 
     first_name  = escape(request.form.get("fname"))
     second_name = escape(request.form.get("sname"))
+    custom_object = {
+        "FirstName": first_name,
+        "SecondName": second_name
+    }
+    custom_json = json.dumps(custom_object)
+    custom_base = base64.b64encode(bytes(custom_json, "utf8")).decode("utf8")
     run_trap_cli([
         "send-incident",
         "-n", "Step 2 - SQL injection was executed!",
         "-d", "A simulated attacker has attempted an SQL injection",
         "-s", "Incident",
         "-i", f"{request.remote_addr}",
-        "-c", f"FirstName={first_name},SecondName={second_name}"
+        "-c", f"{custom_base}"
     ])
     return render('end')
 
