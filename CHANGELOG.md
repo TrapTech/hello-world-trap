@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.4
+
+Update docker-compose definition. 
+
+## 1.1.3
+
+Update TrapCLI.
+
 ## 1.1.2
 
 Set default port. 
