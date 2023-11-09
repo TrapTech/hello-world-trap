@@ -6,5 +6,4 @@ services:
     ports:
       - ${TRAP_EXPOSE_PORT}:80
     environment:
-      - TRAP_LOG_ENDPOINT
-      - TRAP_LOG_TOKEN
+      - TRAPCLI_CONFIG
